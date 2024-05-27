@@ -19,7 +19,6 @@ ENTRYPOINT ./solver
 
 ```
 
-
 ## CMakeLists.txt
 ```sh
 
@@ -47,4 +46,28 @@ install(TARGETS solver
 )
 
 include(CPack.cmake)
+```
+
+# actions.yml
+```
+name: test
+
+on:
+ push:
+  branches: [main]
+
+
+jobs: 
+ build_Linux:
+
+  runs-on: ubuntu-latest
+
+  steps:
+  - uses: actions/checkout@v4
+
+  - name: Build the Docker
+    run: docker build -t logger .
+
+  - name: Put logs
+    run: docker run -v "$(pwd)/logs/:/home/logs/" logger 1 4 3
 ```
