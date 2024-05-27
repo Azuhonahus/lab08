@@ -1,0 +1,3 @@
+/Users/aleksandrnikonorov/Azuhonahus/workspace/tasks/lab03/formatter_ex_lib/build/CMakeFiles/formatter_ex.dir
+/Users/aleksandrnikonorov/Azuhonahus/workspace/tasks/lab03/formatter_ex_lib/build/CMakeFiles/edit_cache.dir
+/Users/aleksandrnikonorov/Azuhonahus/workspace/tasks/lab03/formatter_ex_lib/build/CMakeFiles/rebuild_cache.dir
