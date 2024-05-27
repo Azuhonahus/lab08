@@ -1,17 +1,11 @@
-cmake_minimum_required(VERSION 3.22.1)
+cmake_minimum_required(VERSION 3.4)
 project(hello_world)
-
-set(CMAKE_CXX_STANDARD 20)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-
-add_executable(hello_world hello_world.cpp)
-
-add_library(formatter_lib STATIC ../formatter_lib/formatter.cpp)
-add_library(formatter_ex_lib STATIC ../formatter_ex_lib/formatter_ex.cpp)
-
-
-target_include_directories(formatter_lib PUBLIC ../formatter_lib)
-target_include_directories(formatter_ex_lib PUBLIC ../formatter_ex_lib ../formatter_lib)
-target_include_directories(hello_world PUBLIC ../formatter_ex_lib ../formatter_lib)
-
-target_link_libraries(hello_world formatter_ex_lib formatter_lib)
+set(CMAKE_CXX_STANDART 11)
+set(CMAKE_CXX_STANDART_REQUIRED ON)
+add_library(formatter STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib/formatter.cpp)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/formatter_lib)
+add_library(formatter_ex STATIC ${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib/formatter_ex.cpp)
+include_directories(${CMAKE_CURRENT_SOURCE_DIR}/formatter_ex_lib)
+add_executable(main ${CMAKE_CURRENT_SOURCE_DIR}/hello_world_application/hello_world.cpp)
+target_link_libraries(formatter_ex formatter)
+target_link_libraries(main formatter_ex)
