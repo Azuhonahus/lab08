@@ -1,5 +1,5 @@
 name: test
-fz
+
 on:
  push:
   branches: [main]
